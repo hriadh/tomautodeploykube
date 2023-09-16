@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcataks
+  labels:
+    app: tomcataks
+  namespace: namespace-workflow-1694896099551
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tomcataks
+  template:
+    metadata:
+      labels:
+        app: tomcataks
+    spec:
+      containers:
+        - name: tomcataks
+          image: essectregistry.azurecr.io/image-workflow-1694896099551:latest
+          ports:
+            - containerPort: 8080
